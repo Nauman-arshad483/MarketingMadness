@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Marketing Madness Ai || subscribed</title>
+    <link rel="icon" href="./Logo-compressed.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./success.css">
+</head>
+
+<body>
+    <section>
+        <h1>Payment successfull to Marketing Madness Ai</h1>
+        <a href="/dashboard">Go to My Dashboard</a>
+    </section>
+
+
+    <script>
+        window.onload = async () => {
+            try {
+
+                const response = await fetch("/check-active-user", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({}),
+                });
+
+                const data = await response.json();
+                if (data.user) {
+                    const response = await fetch("http://103.107.184.159:7000/subscribe", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ user: data.user, start_date: new Date(), end_date: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000) })
+                    });
+                    const updated = await response.json();
+                    // if (updated.modifiedCount) {
+                    //     window.location.assign("/dashboard");
+                    // }
+                    console.log(updated)
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+.card {
+    display: none;
+}
+.heading {
+    text-align: center;
+    z-index: 100;
+}
+.heading h1 {
+    text-shadow: -1px 0.5px 10px rgba(0, 0, 0, 0.3);
+}
+.cta {
+    display: flex;
+    justify-content: center;
+}
+.cta > button{
+    border: 0;
+    outline: none;
+    font-size: 15px;
+    letter-spacing: 0.7px;
+    padding: 20px 40px;
+    border-radius: 4px;
+    background-color: rgb(92, 92, 255);
+    color: #f3f3f3;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.cta > button:hover {
+    background-color: rgb(42, 42, 209);
+    color: white;
+}
+
+.wrapper {
+    position: relative;
+}
+.price {
+    color: rgb(0, 108, 0);
+}

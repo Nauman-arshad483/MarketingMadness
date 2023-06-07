@@ -1,0 +1,19 @@
+
+#sign-in .login .login-wr .cont {
+    background-color: #0c9a76;
+    color: #fff;
+    padding: 15px 18px;
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+    border-radius: 4px;
+    width: 100%;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+#email-error, #password-error {
+    font-size: 12px;
+    color: rgb(138, 26, 26);
+    display: none;
+}

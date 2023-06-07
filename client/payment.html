@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Madness | Welcome</title>
+  <link rel="icon" href="./Logo-compressed.png" type="image/x-icon" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./payment.css" />
+  <script src="https://js.stripe.com/v3/"></script>
+
+</head>
+
+<body class="wel">
+  <div class="welcome">
+    <div class="wrapper">
+      <div class="heading">
+        <img src="./Logo-compressed.png" alt="" />
+        <h1>
+          Stay with Marketing Madness AI <br>
+          Get membership stay connected <br> <br> <small class="price">$69.00 / month</small>
+        </h1>
+        <div class="cta">
+          <button onclick="makePayment()" type="button">Complete Order</button>
+        </div>
+      </div>
+
+      <div class="reserve">
+        <p>Marketing Madness Ai © 2022 | All Rights Reserved</p>
+        <p>Marketing Madness Ai is a subsidiary of Marketing Madness</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  // Payment Functions
+  async function makePayment(event) {
+    // event.preventDefault()
+
+    // let name = document.forms['payment']['name'].value
+    // let email = document.forms['payment']['email'].value
+    // let phone = document.forms['payment']['phone'].value
+    // let card_number = document.forms['payment']['card_number'].value
+    // let mm_yy = document.forms['payment']['mm_yy'].value
+    // let cvc = document.forms['payment']['cvc'].value
+
+    try {
+      // let data = { name, email, phone, card_number, mm_yy, cvc }
+      let body = [
+        { id: 1, quantity: 3 },
+        { id: 2, quantity: 1 },
+      ]
+
+      const response = await fetch('/stripe-payment', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      })
+
+      let result = await response.json()
+      console.log({ result })
+      let url = result?.url
+
+      if (response.status === 200 && url) {
+        window.location = url
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+</script>

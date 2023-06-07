@@ -1,0 +1,172 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.container .first {
+    min-width: 320px;
+    max-width: 100vh;
+}
+
+.first #history {
+  flex: 1;
+  gap: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.first #history::-webkit-scrollbar {
+  width: 10px;
+}
+.first #history::-webkit-scrollbar-track {
+  background: rgba(41, 41, 41, 0);
+}
+.first #history::-webkit-scrollbar-thumb {
+      /* color of the scroll thumb */
+    background-color: transparent;
+    border-radius: 20px;    /* roundness of the scroll thumb */
+    border: .5px solid rgba(75, 75, 75, 0.041);
+}
+
+#history:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(82, 82, 82, 0.952);
+}
+
+#history button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+  padding: 20px 12px;
+  border: 1px solid rgba(19, 19, 19, 0.116);
+  border-radius: 7px;
+  background-color: rgb(44, 44, 44);
+  color: rgb(212, 228, 228);
+  font-size: 15px;
+  letter-spacing: 0.9px;
+  font-weight: 600;
+  transition: 300ms ease;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#history button p {
+  flex: 1;
+  text-align: left;
+  background-color: transparent;
+}
+
+#history button:hover .delete-icon{
+  display: block;
+}
+
+.delete-icon {
+  font-size: 20px;
+  display: none;
+}
+.result-page {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 150px;
+    display: none;
+}
+.madness-logo {
+    width: 50px;
+    background-color: rgb(41, 39, 39);
+}
+.result-page::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+.result-page::-webkit-scrollbar-track {
+    background: rgb(204, 204, 204);        /* color of the tracking area */
+  }
+  
+.result-page::-webkit-scrollbar-thumb {
+    background-color: rgba(71, 71, 71, 0.623);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: .5px solid rgba(75, 75, 75, 0.801);  /* creates padding around scroll thumb */
+  }
+
+.question-text {
+    background: transparent;
+    border: 0;
+    outline: none;
+    border-color: transparent;
+}
+#regenerate-btn {
+    margin-left: 10px;
+    background-color: transparent;
+    border: 0.5px;
+    display: none;
+}
+
+#dots #dot1{
+    animation: load 1s infinite;
+  }
+  
+  #dots #dot2{
+    animation: load 1s infinite;
+    animation-delay: 0.2s;
+  }
+  
+  #dots #dot3{
+    animation: load 1s infinite;
+    animation-delay: 0.4s;
+  }
+
+  #dots {
+    transform: rotateY(10deg);
+    height: 0;
+    width: 0;
+  }
+  
+  @keyframes load{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+}
+
+@media (max-width: 800px) {
+  .grid .open {
+      display: flex;
+      left: 0%;
+  }
+}
+
+@media (max-width: 800px) {
+.grid .first .down-p {
+    position: relative;
+    /* bottom: 0; */
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+#title-search {
+    display: inline-block !important;
+    display: flex !important;
+    color: #929292;
+    background: rgb(80, 80, 80);
+}
+.result-page {
+  padding-top: 50px;
+}
+}
